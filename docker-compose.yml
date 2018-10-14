@@ -21,3 +21,15 @@ services:
     - 8087:8080
     volumes:
     - /data/spring-boot-app
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      PMA_ARBITRARY: 1
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+    - 8181:80
+    links:
+    # for mysql container
+    - "mysql-docker-container:mysql-docker-container"
