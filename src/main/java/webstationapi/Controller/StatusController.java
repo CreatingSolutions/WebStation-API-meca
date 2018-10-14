@@ -20,8 +20,10 @@ public class StatusController {
 
     @GetMapping("/status")
     @ResponseBody
-    public ResponseEntity sendViaResponseEntity() {
+    public String sendViaResponseEntity() {
 
+        return "ok";
+        /*
         final String uri = "http://localhost:8081/status";
 
         RestTemplate restTemplate = new RestTemplate();
@@ -31,6 +33,7 @@ public class StatusController {
         System.out.println("Result --- " + ret);
 
         return new ResponseEntity<>(HttpStatus.CREATED);
+    */
     }
 
 }
