@@ -1,35 +1,12 @@
 version: '3'
 
 services:
-  mysql-docker-container:
-    image: mysql:5.7.23
-    environment:
-    - MYSQL_ROOT_PASSWORD=root
-    - MYSQL_DATABASE=test
-    - MYSQL_USER=root
-    - MYSQL_PASSWORD=root
-    volumes:
-    - /data/mysql
   meca:
     image: meca
     build:
       context: ./
       dockerfile: Dockerfile
-    depends_on:
-    - mysql-docker-container
     ports:
     - 8087:8080
     volumes:
     - /data/spring-boot-app
-  phpmyadmin:
-    image: phpmyadmin/phpmyadmin
-    environment:
-      PMA_ARBITRARY: 1
-      MYSQL_USER: root
-      MYSQL_PASSWORD: root
-      MYSQL_ROOT_PASSWORD: root
-    ports:
-    - 8181:80
-    links:
-    # for mysql container
-    - "mysql-docker-container:mysql-docker-container"
