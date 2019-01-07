@@ -52,4 +52,46 @@ public class Booking {
         this.insurance = insurance;
         this.duration = duration;
     }
+	public long getBookingId() {
+		return bookingId;
+	}
+	public void setBookingId(long bookingId) {
+		this.bookingId = bookingId;
+	}
+	public Domain getDomain() {
+		return domain;
+	}
+	public void setDomain(Domain domain) {
+		this.domain = domain;
+	}
+	public double getPrice() {
+		return price;
+	}
+	public void setPrice(double price) {
+		this.price = price;
+	}
+	public Date getStartDate() {
+		return startDate;
+	}
+	public void setStartDate(Date startDate) {
+		this.startDate = startDate;
+	}
+	public Date getEndDate() {
+		return endDate;
+	}
+	public void setEndDate(Date endDate) {
+		this.endDate = endDate;
+	}
+	public int getInsurance() {
+		return insurance;
+	}
+	public void setInsurance(int insurance) {
+		this.insurance = insurance;
+	}
+	public int getDuration() {
+		return duration;
+	}
+	public void setDuration(int duration) {
+		this.duration = duration;
+	}
 }
