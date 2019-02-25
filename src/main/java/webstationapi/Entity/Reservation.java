@@ -25,7 +25,7 @@ public class Reservation {
 	private int userId;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "domainId")
+    @JoinColumn(name = "DOMAIN_ID")
 	private int domainId;
 	
 	@Column(name = "PRICE")
