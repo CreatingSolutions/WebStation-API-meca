@@ -28,4 +28,7 @@ public class TelesiegeController {
         return this.telesiegeService.findAll();
     }
 
+    public Double getCalculatePrice(){
+        return 0.0;
+    }
 }
