@@ -1,5 +1,7 @@
 package webstationapi.Controller;
 
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.web.bind.annotation.*;
@@ -7,6 +9,7 @@ import webstationapi.DTO.LiftDTO;
 import webstationapi.Entity.LiftBooking;
 import webstationapi.Service.LiftBookingService;
 
+import java.io.FileNotFoundException;
 import java.util.List;
 
 @RestController
@@ -27,11 +30,11 @@ public class LiftBookingController {
         this.liftBookingService.makeBook(liftDTOS, idUser);
     }
 
-    @GetMapping("pdf/{iduser}")
-    public void generatePdf(@PathVariable Long iduser){
+    @GetMapping(name = "pdf/{iduser}", produces = "application/pdf")
+    public void generatePdf(@PathVariable Long iduser) throws FileNotFoundException, DocumentException {
         // also validate book
-       
-
+        // Need TO Generate IN API
+        this.liftBookingService.makePdf(iduser);
     }
 
 }
