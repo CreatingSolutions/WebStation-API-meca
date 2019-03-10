@@ -4,7 +4,7 @@ package webstationapi.Controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.web.bind.annotation.*;
-import webstationapi.DTO.LiftPriceDTO;
+import webstationapi.DTO.LiftDTO;
 import webstationapi.Entity.Lift;
 import webstationapi.Enum.AgeEnum;
 import webstationapi.Enum.TypeEnum;
@@ -31,8 +31,8 @@ public class LiftController {
     }
 
     @PostMapping("price")
-    public Double getCalculePrice(@RequestBody List<LiftPriceDTO> liftPriceDTOS) {
-        return this.liftService.calculePrice(liftPriceDTOS);
+    public Double getCalculePrice(@RequestBody List<LiftDTO> liftDTOS) {
+        return this.liftService.calculePrice(liftDTOS);
     }
 
 }

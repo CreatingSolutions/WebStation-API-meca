@@ -1,6 +1,6 @@
 package webstationapi.DTO;
 
-public class LiftPriceDTO {
+public class LiftDTO {
 
     private Long id;
 
