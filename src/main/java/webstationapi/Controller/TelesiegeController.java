@@ -3,9 +3,8 @@ package webstationapi.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import webstationapi.DTO.TelesiegeDTO;
 import webstationapi.Entity.Telesiege;
 import webstationapi.Service.TelesiegeService;
 
@@ -13,22 +12,24 @@ import java.util.List;
 
 @RestController
 @EnableAutoConfiguration
+@RequestMapping("telesiege")
 public class TelesiegeController {
 
     @Autowired
     private TelesiegeService telesiegeService;
 
-    @GetMapping("telesiege/{id}")
+    @GetMapping("{id}")
     public Telesiege getTelesiege(@PathVariable Long id) {
         return this.telesiegeService.findById(id);
     }
 
-    @GetMapping("telesieges")
+    @GetMapping
     public List<Telesiege> getTelesieges() {
         return this.telesiegeService.findAll();
     }
 
-    public Double getCalculatePrice(){
-        return 0.0;
+    @PostMapping("price")
+    public Double getCalculatePrice(@RequestBody List<TelesiegeDTO> telesieges) {
+        return this.telesiegeService.getPrice(telesieges);
     }
 }
