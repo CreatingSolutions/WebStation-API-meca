@@ -1,12 +1,16 @@
 package webstationapi.Entity;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "MECA_TELESIEGE")
 public class Telesiege {
 
+    @Id
+    @GeneratedValue
     private Long id;
 
     private double price;
