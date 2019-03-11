@@ -30,7 +30,7 @@ public class LiftBookingController {
         this.liftBookingService.makeBook(liftDTOS, idUser);
     }
 
-    @GetMapping(name = "pdf/{iduser}", produces = "application/pdf")
+    @GetMapping("pdf/{iduser}")
     public void generatePdf(@PathVariable Long iduser) throws FileNotFoundException, DocumentException {
         // also validate book
         // Need TO Generate IN API
