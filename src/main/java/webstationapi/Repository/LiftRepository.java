@@ -13,4 +13,6 @@ public interface LiftRepository extends JpaRepository<Lift, Long> {
 
     public List<Lift> findByTypeAndAgeAndDiamondIsTrue(TypeEnum type, AgeEnum age);
 
+    List<Lift> findByType(TypeEnum typeEnum);
+
 }

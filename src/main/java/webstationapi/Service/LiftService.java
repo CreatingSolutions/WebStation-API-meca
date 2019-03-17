@@ -56,4 +56,10 @@ public class LiftService {
 
         return forfaitDTOS;
     }
+
+    public List<Lift> findtelesiege(TypeEnum type) {
+        return this.liftRepository.findByType(type);
+    }
+
+
 }

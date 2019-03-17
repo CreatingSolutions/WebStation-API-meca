@@ -139,3 +139,6 @@ INSERT INTO `meca_lift` (`id`, `age`, `description`, `insurrance`, `label`, `pri
 INSERT INTO `meca_lift` (`id`, `age`, `description`, `insurrance`, `label`, `price`, `diamond`, `type`, `labeltype`,`price_group`, `price_unit`) VALUES (NULL, 'AGE_OR', 'Age d''Or : de + de 75 ans ', '2.8', '8 J', FALSE, FALSE, 'NORDIQUE', 'EIGHT', '0.0','0.0');
 INSERT INTO `meca_lift` (`id`, `age`, `description`, `insurrance`, `label`, `price`, `diamond`, `type`, `labeltype`,`price_group`, `price_unit`) VALUES (NULL, 'AGE_OR', 'Age d''Or : de + de 75 ans ', '2.8', 'Forfait saison', '84.5', FALSE, 'NORDIQUE', 'SEASON', '0.0','0.0');
 
+
+INSERT INTO `meca_lift` (`id`, `age`, `description`, `insurrance`, `label`, `price`, `diamond`, `type`, `labeltype`,`price_group`, `price_unit`) VALUES (NULL, 'AGE_OR', 'Age d''Or : de + de 75 ans ', '2.8', '1 aller/retour :', '84.5', FALSE, 'TELESIEGE', 'SEASON', '40.0','7.5');
+INSERT INTO `meca_lift` (`id`, `age`, `description`, `insurrance`, `label`, `price`, `diamond`, `type`, `labeltype`,`price_group`, `price_unit`) VALUES (NULL, 'AGE_OR', 'Age d''Or : de + de 75 ans ', '2.8', '6 aller/retour :', '84.5', FALSE, 'TELESIEGE', 'SEASON', '40.0','7.5');

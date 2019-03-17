@@ -4,6 +4,7 @@ package webstationapi.Controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.web.bind.annotation.*;
+import webstationapi.DTO.ForfaitDTO;
 import webstationapi.DTO.LiftDTO;
 import webstationapi.Entity.Lift;
 import webstationapi.Enum.AgeEnum;
@@ -28,15 +29,35 @@ public class LiftController {
     @GetMapping
     public LiftDTO getLiftByTypeAndAge(@RequestParam(value = "type") TypeEnum type, @RequestParam(value = "age", required = false) AgeEnum age) {
 
-        List<Lift> normal = this.liftService.findByTypeAndAge(type, age, false);
-        List<Lift> diamond = this.liftService.findByTypeAndAge(type, age, true);
+        if (type.equals(TypeEnum.TELESIEGE)) {
+            List<Lift> normal = this.liftService.findtelesiege(type);
+            LiftDTO liftDTO = new LiftDTO();
+            liftDTO.setDescription(normal.get(0).getDescription());
 
-        LiftDTO liftDTO = new LiftDTO();
-        liftDTO.setDescription(normal.get(0).getDescription());
-        liftDTO.setNormal(this.liftService.buildForfait(normal));
-        liftDTO.setDiamant(this.liftService.buildForfait(diamond));
+            ForfaitDTO unit = new ForfaitDTO();
+            unit.setPrice(normal.get(0).getPrice_unit());
+            unit.setId(normal.get(0).getId());
+            unit.setLabel(normal.get(0).getLabel());
 
-        return liftDTO;
+            ForfaitDTO group = new ForfaitDTO();
+            group.setPrice(normal.get(1).getPrice_group());
+            group.setId(normal.get(1).getId());
+            group.setLabel(normal.get(1).getLabel());
+
+            liftDTO.setUnitaire(unit);
+            liftDTO.setGroupe(group);
+            return liftDTO;
+        } else {
+
+            List<Lift> normal = this.liftService.findByTypeAndAge(type, age, false);
+            List<Lift> diamond = this.liftService.findByTypeAndAge(type, age, true);
+
+            LiftDTO liftDTO = new LiftDTO();
+            liftDTO.setDescription(normal.get(0).getDescription());
+            liftDTO.setNormal(this.liftService.buildForfait(normal));
+            liftDTO.setDiamant(this.liftService.buildForfait(diamond));
+            return liftDTO;
+        }
     }
 
     @PostMapping("price")
