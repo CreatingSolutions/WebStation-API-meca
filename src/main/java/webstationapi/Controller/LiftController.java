@@ -26,8 +26,17 @@ public class LiftController {
     }
 
     @GetMapping
-    public List<Lift> getLiftByTypeAndAge(@RequestParam(value = "type") TypeEnum type, @RequestParam(value = "age") AgeEnum age) {
-        return this.liftService.findByTypeAndAge(type, age);
+    public LiftDTO getLiftByTypeAndAge(@RequestParam(value = "type") TypeEnum type, @RequestParam(value = "age", required = false) AgeEnum age) {
+
+        List<Lift> normal = this.liftService.findByTypeAndAge(type, age, false);
+        List<Lift> diamond = this.liftService.findByTypeAndAge(type, age, true);
+
+        LiftDTO liftDTO = new LiftDTO();
+        liftDTO.setDescription(normal.get(0).getDescription());
+        liftDTO.setNormal(this.liftService.buildForfait(normal));
+        liftDTO.setDiamant(this.liftService.buildForfait(diamond));
+
+        return liftDTO;
     }
 
     @PostMapping("price")

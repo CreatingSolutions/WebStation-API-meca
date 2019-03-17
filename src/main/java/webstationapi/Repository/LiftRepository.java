@@ -9,6 +9,8 @@ import java.util.List;
 
 public interface LiftRepository extends JpaRepository<Lift, Long> {
 
-    public List<Lift> findByTypeAndAge(TypeEnum type, AgeEnum age);
+    public List<Lift> findByTypeAndAgeAndDiamondIsFalse(TypeEnum type, AgeEnum age);
+
+    public List<Lift> findByTypeAndAgeAndDiamondIsTrue(TypeEnum type, AgeEnum age);
 
 }
