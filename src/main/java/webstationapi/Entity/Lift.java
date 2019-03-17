@@ -25,12 +25,20 @@ public class Lift {
 
     private Double price;
 
-    private Double price_diamond;
-
     @Enumerated(EnumType.STRING)
     private TypeEnum type;
 
+    private boolean diamond;
+
     private Double insurrance;
+
+    private Double price_unit;
+
+    private Double price_group;
+
+    private String description;
+
+
 
     public Long getId() {
         return id;
@@ -72,14 +80,29 @@ public class Lift {
         this.price = price;
     }
 
-    public Double getPrice_diamond() {
-        return price_diamond;
+    public boolean isDiamond() {
+        return diamond;
     }
 
-    public void setPrice_diamond(Double price_diamond) {
-        this.price_diamond = price_diamond;
+    public void setDiamond(boolean diamond) {
+        diamond = diamond;
     }
 
+    public Double getPrice_unit() {
+        return price_unit;
+    }
+
+    public void setPrice_unit(Double price_unit) {
+        this.price_unit = price_unit;
+    }
+
+    public Double getPrice_group() {
+        return price_group;
+    }
+
+    public void setPrice_group(Double price_group) {
+        this.price_group = price_group;
+    }
 
     public TypeEnum getType() {
         return type;
@@ -105,7 +128,7 @@ public class Lift {
         this.description = description;
     }
 
-    private String description;
+
 
 
 }
