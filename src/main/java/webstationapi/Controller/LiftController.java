@@ -35,12 +35,12 @@ public class LiftController {
             liftDTO.setDescription(normal.get(0).getDescription());
 
             ForfaitDTO unit = new ForfaitDTO();
-            unit.setPrice(normal.get(0).getPrice_unit());
+            unit.setPrices(normal.get(0).getPrice_unit());
             unit.setId(normal.get(0).getId());
             unit.setLabel(normal.get(0).getLabel());
 
             ForfaitDTO group = new ForfaitDTO();
-            group.setPrice(normal.get(1).getPrice_group());
+            group.setPrices(normal.get(1).getPrice_group());
             group.setId(normal.get(1).getId());
             group.setLabel(normal.get(1).getLabel());
 

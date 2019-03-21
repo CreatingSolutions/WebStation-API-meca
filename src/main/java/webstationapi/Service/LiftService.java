@@ -50,7 +50,7 @@ public class LiftService {
             ForfaitDTO forfaitDTO = new ForfaitDTO();
             forfaitDTO.setId(lift.getId());
             forfaitDTO.setLabel(lift.getLabel());
-            forfaitDTO.setPrice(lift.getPrice());
+            forfaitDTO.setPrices(lift.getPrice());
             forfaitDTOS.add(forfaitDTO);
         }
 
