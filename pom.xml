@@ -15,7 +15,7 @@
 
     <properties>
         <docker.image.prefix>damilink</docker.image.prefix>
-        <sonar.coverage.exclusions>src/**/Main.java, src/**/Entity/**/*</sonar.coverage.exclusions>
+        <sonar.coverage.exclusions>src/**/Main.java, src/**/Entity/**/*,src/**/DTO/**/*, src/**/Enum/**/*,src/**/Config/**/*,src/**/Repository/**/* </sonar.coverage.exclusions>
         <java.version>1.8</java.version>
     </properties>
 
