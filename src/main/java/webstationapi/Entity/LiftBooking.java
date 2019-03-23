@@ -7,31 +7,23 @@ import lombok.Setter;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 @Data
 @Getter
 @Setter
+@Entity
 public class LiftBooking {
 
     @Id
-    @GeneratedValue
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long liftId;
 
-    private Long idUser;
+    private int userId;
 
-    private Long idLift;
-
-    private boolean insurrance = false;
-
-    private boolean isDiamond = false;
-
-    private double nbFois = 0;
+    private boolean insurance;
 
     private Double price;
-
-    boolean valid = false;
-
 
 }

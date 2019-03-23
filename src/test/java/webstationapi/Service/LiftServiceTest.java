@@ -27,7 +27,7 @@ public class LiftServiceTest {
     @Test
     public void calculePrice() {
         LiftRepository mock = mock(LiftRepository.class);
-        LiftService liftService = new LiftService(mock);
+        LiftService liftService = new LiftService(mock, null);
         Double aDouble = liftService.calculePrice(new ArrayList<>());
         assertEquals(aDouble, Double.valueOf(0.0));
     }
@@ -35,7 +35,7 @@ public class LiftServiceTest {
     @Test
     public void buildForfait() {
         LiftRepository mock = mock(LiftRepository.class);
-        LiftService liftService = new LiftService(mock);
+        LiftService liftService = new LiftService(mock, null);
 
         Lift lift = new Lift();
         lift.setId(1L);
@@ -53,7 +53,7 @@ public class LiftServiceTest {
     @Test
     public void findtelesiege() {
         LiftRepository mock = mock(LiftRepository.class);
-        LiftService liftService = new LiftService(mock);
+        LiftService liftService = new LiftService(mock, null);
 
         Lift lift = new Lift();
         lift.setId(1L);
