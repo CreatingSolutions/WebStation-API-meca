@@ -3,10 +3,13 @@ package webstationapi.Service;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import webstationapi.DTO.ForfaitDTO;
+import webstationapi.DTO.LiftBookDTO;
 import webstationapi.DTO.LiftDTO;
 import webstationapi.Entity.Lift;
+import webstationapi.Entity.LiftBooking;
 import webstationapi.Enum.AgeEnum;
 import webstationapi.Enum.TypeEnum;
+import webstationapi.Repository.LiftBookingRepository;
 import webstationapi.Repository.LiftRepository;
 
 import java.util.ArrayList;
@@ -18,8 +21,11 @@ public class LiftService {
 
     private LiftRepository liftRepository;
 
-    public LiftService(LiftRepository liftRepository) {
+    private LiftBookingRepository liftBookingRepository;
+
+    public LiftService(LiftRepository liftRepository, LiftBookingRepository liftBookingRepository) {
         this.liftRepository = liftRepository;
+        this.liftBookingRepository = liftBookingRepository;
     }
 
     @Transactional(readOnly = true)
@@ -62,4 +68,21 @@ public class LiftService {
     }
 
 
+    public Long addcart(LiftBookDTO liftBookDTO) {
+
+        Lift byId = liftRepository.findById(liftBookDTO.getLiftId()).get();
+        
+        LiftBooking liftBooking = new LiftBooking();
+        liftBooking.setUserId(liftBookDTO.getUserId());
+        if (liftBookDTO.isInsurance())
+            liftBooking.setPrice(byId.getPrice() * liftBookDTO.getTaked() + byId.getInsurrance());
+        else
+            liftBooking.setPrice(byId.getPrice() * liftBookDTO.getTaked());
+
+        liftBooking.setLiftId(liftBookDTO.getLiftId());
+        liftBooking.setInsurance(liftBookDTO.isInsurance());
+
+        LiftBooking save = this.liftBookingRepository.save(liftBooking);
+        return save.getLiftId();
+    }
 }

@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.web.bind.annotation.*;
 import webstationapi.DTO.ForfaitDTO;
+import webstationapi.DTO.LiftBookDTO;
 import webstationapi.DTO.LiftDTO;
 import webstationapi.Entity.Lift;
 import webstationapi.Enum.AgeEnum;
@@ -63,6 +64,14 @@ public class LiftController {
     @PostMapping("price")
     public Double getCalculePrice(@RequestBody List<LiftDTO> liftDTOS) {
         return this.liftService.calculePrice(liftDTOS);
+    }
+
+    @PostMapping("/add")
+    public Long addToCart(@RequestBody LiftBookDTO liftBookDTO) {
+
+        Long id = this.liftService.addcart(liftBookDTO);
+
+        return id;
     }
 
 }
