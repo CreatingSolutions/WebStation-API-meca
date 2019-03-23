@@ -8,6 +8,7 @@ import webstationapi.DTO.ForfaitDTO;
 import webstationapi.DTO.LiftBookDTO;
 import webstationapi.DTO.LiftDTO;
 import webstationapi.Entity.Lift;
+import webstationapi.Entity.LiftBooking;
 import webstationapi.Enum.AgeEnum;
 import webstationapi.Enum.TypeEnum;
 import webstationapi.Service.LiftService;
@@ -72,6 +73,11 @@ public class LiftController {
         Long id = this.liftService.addcart(liftBookDTO);
 
         return id;
+    }
+
+    @GetMapping("/b/{iduser}")
+    public List<LiftBooking> getcart(@PathVariable int iduser){
+
     }
 
 }
