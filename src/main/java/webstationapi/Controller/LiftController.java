@@ -75,9 +75,6 @@ public class LiftController {
         return id;
     }
 
-    @GetMapping("/b/{iduser}")
-    public List<LiftBooking> getcart(@PathVariable int iduser){
-        return this.liftService.getcart(iduser);
-    }
+
 
 }
