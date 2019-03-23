@@ -71,7 +71,7 @@ public class LiftService {
     public Long addcart(LiftBookDTO liftBookDTO) {
 
         Lift byId = liftRepository.findById(liftBookDTO.getLiftId()).get();
-        
+
         LiftBooking liftBooking = new LiftBooking();
         liftBooking.setUserId(liftBookDTO.getUserId());
         if (liftBookDTO.isInsurance())
@@ -84,5 +84,9 @@ public class LiftService {
 
         LiftBooking save = this.liftBookingRepository.save(liftBooking);
         return save.getLiftId();
+    }
+
+    public List<LiftBooking> getcart(int iduser) {
+        return this.liftBookingRepository.findAllByUserId(iduser);
     }
 }
